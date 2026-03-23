@@ -7,7 +7,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.ConfigReader;
 
+import java.time.Duration;
+
 public class DriverFactory {
+
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver initDriver() {
 
@@ -16,15 +20,37 @@ public class DriverFactory {
         if (browser.equalsIgnoreCase("chrome")) {
 
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-blink-features=AutomationControlled");
+
+            // Recommended options (safe + stable)
+            options.addArguments("--start-maximized");
+            options.addArguments("--disable-notifications");
+            options.addArguments("--disable-infobars");
+            options.addArguments("--disable-extensions");
 
             WebDriverManager.chromedriver().setup();
-            return new ChromeDriver(options);
+            driver.set(new ChromeDriver(options));
 
-        } else {
+        } else if (browser.equalsIgnoreCase("edge")) {
 
             WebDriverManager.edgedriver().setup();
-            return new EdgeDriver();
+            driver.set(new EdgeDriver());
+        }
+
+        // Global settings
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        getDriver().manage().deleteAllCookies();
+
+        return getDriver();
+    }
+
+    public static WebDriver getDriver() {
+        return driver.get();
+    }
+
+    public static void quitDriver() {
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove();
         }
     }
 }
