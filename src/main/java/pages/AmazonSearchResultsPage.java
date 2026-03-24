@@ -4,34 +4,25 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.List;
+import factory.DriverFactory;
 
 public class AmazonSearchResultsPage {
 
-    WebDriver driver;
-    WebDriverWait wait;
+    WebDriver driver = DriverFactory.getDriver();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-    public AmazonSearchResultsPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
-
-    By resultsHeader = By.xpath("//span[contains(text(),'results for')]");
-    By productTitles = By.xpath("//div[@data-component-type='s-search-result']//h2//span");
+    By results = By.cssSelector("div.s-main-slot div[data-component-type='s-search-result']");
 
     public boolean isResultsPageDisplayed() {
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(resultsHeader)
-        ).isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(results)).isDisplayed();
     }
 
-    public boolean verifyResultsContain(String keyword) {
+    public boolean verifyResultsContain(String product) {
 
-        List<WebElement> titles = wait.until(
-                ExpectedConditions.visibilityOfAllElementsLocatedBy(productTitles)
-        );
+        List<WebElement> list = driver.findElements(results);
 
-        for (WebElement title : titles) {
-            if (title.getText().toLowerCase().contains(keyword.toLowerCase())) {
+        for (WebElement e : list) {
+            if (e.getText().toLowerCase().contains(product.toLowerCase())) {
                 return true;
             }
         }

@@ -4,19 +4,15 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.List;
+import factory.DriverFactory;
 
 public class AmazonHomePage {
 
-    WebDriver driver;
-    WebDriverWait wait;
-
-    public AmazonHomePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
+    WebDriver driver = DriverFactory.getDriver();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     By searchBox = By.id("twotabsearchtextbox");
-    By suggestions = By.xpath("//div[@role='listbox']//div[contains(@class,'s-suggestion')]");
+    By suggestions = By.xpath("//div[@role='button' and contains(@class,'s-suggestion')]");
 
     public void enterSearchText(String text) {
         WebElement box = wait.until(ExpectedConditions.visibilityOfElementLocated(searchBox));
@@ -26,15 +22,13 @@ public class AmazonHomePage {
 
     public void clickFirstSuggestion() {
 
-        By suggestions = By.xpath("//div[@role='button' and contains(@class,'s-suggestion')]");
-
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(suggestions));
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(suggestions));
 
             List<WebElement> list = driver.findElements(suggestions);
 
             if (!list.isEmpty()) {
-                list.get(0).click();   // ✅ Click first suggestion
+                list.get(0).click();
             } else {
                 driver.findElement(searchBox).sendKeys(Keys.ENTER);
             }
