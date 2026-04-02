@@ -4,7 +4,7 @@ import io.cucumber.testng.*;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/features/add_to_cart.feature",
+        features = "src/test/resources/features",
         glue = {"stepdefinitions", "hooks"},
         plugin = {"pretty", "html:target/report.html"},
         monochrome = true

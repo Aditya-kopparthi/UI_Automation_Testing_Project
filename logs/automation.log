@@ -1,0 +1,47 @@
+2026-04-02 16:07:25 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-02 16:07:25 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-02 16:07:31 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-02 16:07:43 INFO  stepdefinitions.AmazonCartSteps - Switching to product tab
+2026-04-02 16:07:43 INFO  stepdefinitions.AmazonCartSteps - Validating product page
+2026-04-02 16:07:43 INFO  stepdefinitions.AmazonCartSteps - Adding product to cart
+2026-04-02 16:07:46 INFO  stepdefinitions.AmazonCartSteps - Opening cart page
+2026-04-02 16:07:48 INFO  stepdefinitions.AmazonCartSteps - Validating product added
+2026-04-02 16:07:48 INFO  stepdefinitions.AmazonCartSteps - Subtotal:  ₹699.00
+2026-04-02 16:07:48 INFO  stepdefinitions.AmazonCartSteps - Cart count: 1
+2026-04-02 16:07:51 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-02 16:07:51 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-02 16:07:55 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-02 16:07:59 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-02 16:07:59 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+
+
+2026-04-02 16:11:41 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-02 16:11:41 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-02 16:11:49 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+
+2026-04-02 16:12:12 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-02 16:12:12 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-02 16:12:15 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-02 16:12:18 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-02 16:12:18 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+
+2026-04-02 16:22:01 INFO  hooks.Hooks - ========== TEST STARTED: Add product to cart from Toys category ==========
+2026-04-02 16:22:05 INFO  hooks.Hooks - Browser launched and URL opened
+2026-04-02 16:22:05 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-02 16:22:05 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-02 16:22:11 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-02 16:22:28 ERROR hooks.Hooks - TEST FAILED: Add product to cart from Toys category
+2026-04-02 16:22:29 INFO  hooks.Hooks - Browser closed
+2026-04-02 16:22:29 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-02 16:22:30 INFO  hooks.Hooks - ========== TEST STARTED: Search for iPhone using search bar ==========
+2026-04-02 16:22:32 INFO  hooks.Hooks - Browser launched and URL opened
+2026-04-02 16:22:32 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-02 16:22:32 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-02 16:22:36 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-02 16:22:39 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-02 16:22:39 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+2026-04-02 16:22:39 INFO  hooks.Hooks - TEST PASSED: Search for iPhone using search bar
+2026-04-02 16:22:40 INFO  hooks.Hooks - Browser closed
+2026-04-02 16:22:40 INFO  hooks.Hooks - ========== TEST ENDED ==========
+

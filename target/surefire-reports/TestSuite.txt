@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 37.03 s -- in TestSuite
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 40.86 s <<< FAILURE! -- in TestSuite
+runners.TestRunner.runScenario["Add product to cart from Toys category", "Amazon Add to Cart Functionality"](1) -- Time elapsed: 29.19 s <<< FAILURE!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for element to be clickable: By.xpath: //span[text()='Fotball'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.97, fedcm:accounts: true, goog:processID: 2156, ms:edgeOptions: {debuggerAddress: localhost:56881}, msedge: {msedgedriverVersion: 146.0.3856.84 (fe100ed2d0fb..., userDataDir: C:\Users\KADITY~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56881/devtoo..., se:cdpVersion: 146.0.3856.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 507dd0ca0fa7da5d1c08d8445ace84b3
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at pages.CategoryPage.navigateToFootball(CategoryPage.java:23)
+	at stepdefinitions.AmazonCartSteps.selectProduct(AmazonCartSteps.java:33)
+	at ✽.user selects a product from category page(file:///C:/Users/K%20Aditya/IdeaProjects/WalmartUiAutomation/src/test/resources/features/add_to_cart.feature:7)
+
