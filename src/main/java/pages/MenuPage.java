@@ -8,7 +8,7 @@ import factory.DriverFactory;
 public class MenuPage {
 
     WebDriver driver = DriverFactory.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
     // Locators
     By allMenu = By.id("nav-hamburger-menu");
@@ -18,7 +18,7 @@ public class MenuPage {
 
     // ✅ Correct locator (anchor tag, not div)
     By toysCategory = By.xpath("//a[@data-menu-id='15']");
-    By toysAndGames = By.xpath("//a[text()='Toys & Games']");
+    By toysAndGames = By.xpath("//a[@class='hmenu-item' and contains(text(),'Toys')]");
 
     // Scrollable menu container
     By menuContainer = By.id("hmenu-content");

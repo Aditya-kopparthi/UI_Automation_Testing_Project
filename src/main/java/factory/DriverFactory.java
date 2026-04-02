@@ -4,44 +4,63 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.ConfigReader;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class DriverFactory {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    private static final Logger log = LogManager.getLogger(DriverFactory.class);
 
+    // Initialize Driver (NOW RETURNS WebDriver ✅)
     public static WebDriver initDriver() {
 
         String browser = ConfigReader.get("browser");
-        log.info("Initializing browser: " + browser);
+        String url = ConfigReader.get("url");
+
+        System.out.println("Launching browser: " + browser);
 
         if (browser.equalsIgnoreCase("chrome")) {
 
+            WebDriverManager.chromedriver().setup();
+
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            options.addArguments("--disable-notifications");
             options.addArguments("--disable-blink-features=AutomationControlled");
 
-            WebDriverManager.chromedriver().setup();
             driver.set(new ChromeDriver(options));
-
-        } else if (browser.equalsIgnoreCase("edge")) {
-
-            WebDriverManager.edgedriver().setup();
-            driver.set(new EdgeDriver());
         }
 
-        return getDriver();
+        else if (browser.equalsIgnoreCase("edge")) {
+
+            System.setProperty("webdriver.edge.driver", "C:\\Drivers\\msedgedriver.exe");
+
+            EdgeOptions options = new EdgeOptions();
+            options.addArguments("--start-maximized");
+            options.addArguments("--disable-blink-features=AutomationControlled");
+
+            driver.set(new EdgeDriver(options));
+        }
+
+        else {
+            throw new RuntimeException("Browser not supported: " + browser);
+        }
+
+        // Common setup
+        getDriver().manage().deleteAllCookies();
+        getDriver().manage().window().maximize();
+        getDriver().get(url);
+
+        return getDriver();   // ✅ IMPORTANT
     }
 
+    // Get Driver
     public static WebDriver getDriver() {
         return driver.get();
     }
 
+    // Quit Driver
     public static void quitDriver() {
         if (driver.get() != null) {
             driver.get().quit();

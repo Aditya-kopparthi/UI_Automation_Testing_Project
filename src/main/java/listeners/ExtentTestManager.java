@@ -12,5 +12,6 @@ public class ExtentTestManager {
 
     public static ExtentTest getTest() {
         return test.get();
+
     }
 }
