@@ -13,7 +13,7 @@ public class DriverFactory {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    // Initialize Driver (NOW RETURNS WebDriver ✅)
+    // Initialize Driver (NOW RETURNS WebDriver )
     public static WebDriver initDriver() {
 
         String browser = ConfigReader.get("browser");

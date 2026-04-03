@@ -1,31 +1,27 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.*;
-import java.time.Duration;
 import java.util.List;
 import factory.DriverFactory;
+import utils.WaitUtil;
 
 public class AmazonHomePage {
 
     WebDriver driver = DriverFactory.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     By searchBox = By.id("twotabsearchtextbox");
     By suggestions = By.xpath("//div[@role='button' and contains(@class,'s-suggestion')]");
 
+    // Enter text in search box
     public void enterSearchText(String text) {
-        WebElement box = wait.until(ExpectedConditions.visibilityOfElementLocated(searchBox));
-        box.clear();
-        box.sendKeys(text);
+        WaitUtil.sendKeys(driver, searchBox, text);
     }
 
+    // Click first suggestion or press Enter
     public void clickFirstSuggestion() {
 
         try {
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(suggestions));
-
-            List<WebElement> list = driver.findElements(suggestions);
+            List<WebElement> list = WaitUtil.waitForElements(driver, suggestions);
 
             if (!list.isEmpty()) {
                 list.get(0).click();

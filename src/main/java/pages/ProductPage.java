@@ -1,20 +1,19 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.*;
-import java.time.Duration;
 import java.util.Set;
 import factory.DriverFactory;
+import utils.WaitUtil;
 
 public class ProductPage {
 
     WebDriver driver = DriverFactory.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     By productTitle = By.id("productTitle");
     By addToCart = By.id("add-to-cart-button");
     By goToCartBtn = By.xpath("//a[contains(text(),'Go to Cart')]");
 
+    // Switch to new tab
     public void switchToTab() {
 
         Set<String> handles = driver.getWindowHandles();
@@ -24,18 +23,25 @@ public class ProductPage {
         }
     }
 
+    // Validate product page
     public boolean isProductPageDisplayed() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(productTitle)).isDisplayed();
+        try {
+            return WaitUtil.waitForElement(driver, productTitle).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
+    // Click Add to Cart
     public void addToCart() {
-        wait.until(ExpectedConditions.elementToBeClickable(addToCart)).click();
+        WaitUtil.click(driver, addToCart);
     }
 
+    // Navigate to Cart
     public void goToCart() {
 
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(goToCartBtn)).click();
+            WaitUtil.click(driver, goToCartBtn);
         } catch (Exception e) {
             // fallback
             driver.get("https://www.amazon.in/gp/cart/view.html");

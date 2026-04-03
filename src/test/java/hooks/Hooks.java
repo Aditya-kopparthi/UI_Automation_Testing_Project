@@ -10,7 +10,6 @@ import org.openqa.selenium.*;
 
 public class Hooks {
 
-    private WebDriver driver;
     private static final Logger log = LogManager.getLogger(Hooks.class);
 
     @Before
@@ -20,31 +19,36 @@ public class Hooks {
 
         // Initialize driver
         DriverFactory.initDriver();
-        driver = DriverFactory.getDriver();
+
+        // Always get driver from ThreadLocal
+        WebDriver driver = DriverFactory.getDriver();
 
         // Open URL
         driver.get(ConfigReader.get("url"));
 
-        log.info("Browser launched and URL opened");
+        log.info("Browser launched and URL opened | Thread: " + Thread.currentThread().getId());
     }
 
     @After
     public void tearDown(Scenario scenario) {
+
+        WebDriver driver = DriverFactory.getDriver();
 
         try {
             if (scenario.isFailed()) {
 
                 log.error("TEST FAILED: " + scenario.getName());
 
-                // 📸 Capture screenshot (for report)
+                // Screenshot for report
                 byte[] screenshot = ((TakesScreenshot) driver)
                         .getScreenshotAs(OutputType.BYTES);
 
                 scenario.attach(screenshot, "image/png", scenario.getName());
 
-                // 📁 Save screenshot locally
+                // Save locally
                 ScreenshotUtil.capture(driver, scenario.getName());
 
+                log.info("Screenshot captured");
             } else {
                 log.info("TEST PASSED: " + scenario.getName());
             }
@@ -53,10 +57,9 @@ public class Hooks {
             log.error("Error in teardown: ", e);
         } finally {
 
-            // Quit driver safely
             DriverFactory.quitDriver();
 
-            log.info("Browser closed");
+            log.info("Browser closed | Thread: " + Thread.currentThread().getId());
             log.info("========== TEST ENDED ==========\n");
         }
     }

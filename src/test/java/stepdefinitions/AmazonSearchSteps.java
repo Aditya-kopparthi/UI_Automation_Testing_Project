@@ -36,13 +36,13 @@ public class AmazonSearchSteps {
     public void verifyResultsPage() {
         log.info("Validating results page");
         Assert.assertTrue(resultsPage.isResultsPageDisplayed(),
-                "❌ Results page is NOT displayed");
+                " Results page is NOT displayed");
     }
 
     @And("results should be relevant to {string}")
     public void validateResults(String product) {
         log.info("Validating results for: " + product);
         Assert.assertTrue(resultsPage.verifyResultsContain(product),
-                "❌ Results are NOT relevant to: " + product);
+                "Results are NOT relevant to: " + product);
     }
 }

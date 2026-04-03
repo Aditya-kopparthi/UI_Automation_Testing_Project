@@ -1,43 +1,35 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.*;
-import java.time.Duration;
 import factory.DriverFactory;
+import utils.WaitUtil;
 
 public class MenuPage {
 
     WebDriver driver = DriverFactory.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
     // Locators
     By allMenu = By.id("nav-hamburger-menu");
-
-    // "See more / See all" button
     By seeMore = By.xpath("//a[contains(@class,'hmenu-compressed-btn')]");
-
-    // ✅ Correct locator (anchor tag, not div)
     By toysCategory = By.xpath("//a[@data-menu-id='15']");
     By toysAndGames = By.xpath("//a[@class='hmenu-item' and contains(text(),'Toys')]");
-
-    // Scrollable menu container
     By menuContainer = By.id("hmenu-content");
 
     public void navigateToToysGames() {
 
-        wait.until(ExpectedConditions.elementToBeClickable(allMenu)).click();
+        // Click hamburger menu
+        WaitUtil.click(driver, allMenu);
 
-        WebElement menu = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(menuContainer)
-        );
+        // Wait for menu container
+        WebElement menu = WaitUtil.waitForElement(driver, menuContainer);
 
         // Scroll menu
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollTop = arguments[0].scrollHeight", menu);
 
-        // Click See More
+        // Click "See more" (optional)
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(seeMore)).click();
+            WaitUtil.click(driver, seeMore);
         } catch (Exception e) {
             System.out.println("See more not present");
         }
@@ -46,23 +38,21 @@ public class MenuPage {
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollTop = arguments[0].scrollHeight", menu);
 
-        // ✅ Updated locator usage
-        WebElement toys = wait.until(
-                ExpectedConditions.presenceOfElementLocated(toysCategory)
-        );
+        // Wait for Toys category
+        WebElement toys = WaitUtil.waitForElement(driver, toysCategory);
 
+        // Scroll into view
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollIntoView(true);", toys);
 
-        // JS click
+        // JS click (avoids interception)
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].click();", toys);
 
-        // Next click
-        WebElement toysGames = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(toysAndGames)
-        );
+        // Wait for Toys & Games option
+        WebElement toysGames = WaitUtil.waitForElement(driver, toysAndGames);
 
+        // JS click
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].click();", toysGames);
     }

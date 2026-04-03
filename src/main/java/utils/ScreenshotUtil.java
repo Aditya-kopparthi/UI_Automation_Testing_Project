@@ -2,36 +2,35 @@ package utils;
 
 import org.openqa.selenium.*;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.IOException;
+import org.apache.commons.io.FileUtils;
 
 public class ScreenshotUtil {
 
-    public static String capture(WebDriver driver, String name) {
+    public static void capture(WebDriver driver, String name) {
 
         try {
-            // Clean file name (VERY IMPORTANT)
-            name = name.replaceAll("[^a-zA-Z0-9]", "_");
+            // Replace spaces (important)
+            name = name.replaceAll(" ", "_");
+
+            // Correct path
+            String path = "reports/screenshots/";
 
             // Create folder if not exists
-            String dir = System.getProperty("user.dir") + "/reports/screenshots/";
-            Files.createDirectories(Paths.get(dir));
+            File dir = new File(path);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
 
-            // Take screenshot
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File dest = new File(path + name + ".png");
 
-            String path = dir + name + ".png";
+            FileUtils.copyFile(src, dest);
 
-            // Copy file
-            Files.copy(src.toPath(), Paths.get(path));
+            System.out.println("Screenshot saved at: " + dest.getAbsolutePath());
 
-            System.out.println("Screenshot saved: " + path);
-
-            return path;
-
-        } catch (Exception e) {
-            e.printStackTrace();   // ✅ VERY IMPORTANT
-            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,31 +1,40 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.*;
-import java.time.Duration;
 import java.util.List;
 import factory.DriverFactory;
+import utils.WaitUtil;
 
 public class AmazonSearchResultsPage {
 
     WebDriver driver = DriverFactory.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     By results = By.cssSelector("div.s-main-slot div[data-component-type='s-search-result']");
 
+    // Check if results page is displayed
     public boolean isResultsPageDisplayed() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(results)).isDisplayed();
+        try {
+            return WaitUtil.waitForElement(driver, results).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
+    // Verify if results contain expected product
     public boolean verifyResultsContain(String product) {
 
-        List<WebElement> list = driver.findElements(results);
+        try {
+            List<WebElement> list = WaitUtil.waitForElements(driver, results);
 
-        for (WebElement e : list) {
-            if (e.getText().toLowerCase().contains(product.toLowerCase())) {
-                return true;
+            for (WebElement e : list) {
+                if (e.getText().toLowerCase().contains(product.toLowerCase())) {
+                    return true;
+                }
             }
+        } catch (Exception e) {
+            return false;
         }
+
         return false;
     }
 }
