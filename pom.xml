@@ -18,52 +18,60 @@
     <!-- ================= DEPENDENCIES ================= -->
     <dependencies>
 
-        <!-- Selenium -->
+        <!-- Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.21.0</version>
+            <version>4.41.0</version>
+            <scope>compile</scope>
         </dependency>
 
-        <!-- TestNG -->
+        <!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.10.2</version>
+            <version>7.12.0</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- Cucumber -->
+        <!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.17.0</version>
+            <version>7.34.3</version>
+            <scope>compile</scope>
         </dependency>
 
+        <!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>7.17.0</version>
+            <version>7.34.3</version>
+            <scope>compile</scope>
         </dependency>
 
-        <!-- WebDriverManager -->
+        <!-- Source: https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.8.0</version>
+            <version>6.3.3</version>
+            <scope>compile</scope>
         </dependency>
 
-        <!-- Log4j -->
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.23.1</version>
+            <version>2.25.4</version>
+            <scope>compile</scope>
         </dependency>
 
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.23.1</version>
+            <version>2.25.4</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Extent Reports -->
@@ -73,15 +81,14 @@
             <version>5.1.1</version>
         </dependency>
 
-        <!-- JSON (Data Driven) -->
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20240303</version>
-        </dependency>
-
+    <!-- Source: https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20251224</version>
+        <scope>compile</scope>
+    </dependency>
     </dependencies>
-
     <!-- ================= BUILD PLUGINS ================= -->
     <build>
         <plugins>

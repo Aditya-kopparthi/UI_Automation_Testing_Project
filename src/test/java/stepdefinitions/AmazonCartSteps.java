@@ -15,10 +15,13 @@ public class AmazonCartSteps {
     ProductPage product = new ProductPage();
     CartPage cart = new CartPage();
 
+    // Store product data
+    String selectedProduct;
+    String selectedPrice;
+
     @Given("user is on Amazon homepage")
     public void openAmazon() {
         log.info("Amazon homepage opened");
-        // Already handled in Hooks
     }
 
     @When("user navigates to Toys category from menu")
@@ -30,40 +33,49 @@ public class AmazonCartSteps {
     @And("user selects a product from category page")
     public void selectProduct() {
         log.info("Selecting product");
-        category.navigateToFootball();   // includes filters
+        category.navigateToFootball();
         category.selectProduct();
     }
 
     @And("user switches to product tab")
     public void switchTab() {
         log.info("Switching to product tab");
+
         product.switchToTab();
+
+        // ✅ Capture AFTER switching
+        selectedProduct = product.getProductTitle();
+        selectedPrice = product.getProductPrice();
+
+        log.info("Selected Product: " + selectedProduct);
+        log.info("Selected Price: " + selectedPrice);
     }
 
     @Then("product page should be displayed")
     public void validateProductPage() {
-        log.info("Validating product page");
         Assert.assertTrue(product.isProductPageDisplayed(),
-                "❌ Product page is not displayed");
+                "Product page is not displayed");
     }
 
     @When("user adds product to cart")
     public void addCart() {
-        log.info("Adding product to cart");
         product.addToCart();
     }
 
     @And("user navigates to cart page")
     public void openCart() {
-        log.info("Opening cart page");
         product.goToCart();
     }
 
     @Then("product should be added to cart")
     public void validateProductAdded() {
-        log.info("Validating product added");
-        Assert.assertTrue(cart.isProductPresent(),
-                "❌ Product not added to cart");
+
+        log.info("Validating correct product and price");
+
+        Assert.assertTrue(
+                cart.isCorrectProductAdded(selectedProduct, selectedPrice),
+                "Product name or price mismatch!"
+        );
     }
 
     @And("subtotal should be displayed")
@@ -72,7 +84,7 @@ public class AmazonCartSteps {
         log.info("Subtotal: " + subtotal);
 
         Assert.assertTrue(subtotal.contains("₹"),
-                "❌ Subtotal not displayed correctly");
+                "Subtotal not displayed correctly");
     }
 
     @And("cart count should be updated")
@@ -80,7 +92,7 @@ public class AmazonCartSteps {
         int count = Integer.parseInt(cart.getCartCount());
         log.info("Cart count: " + count);
 
-        Assert.assertTrue(count > 0,
-                "❌ Cart count not updated");
+        Assert.assertTrue(count == 1,
+                "Cart count not updated");
     }
 }

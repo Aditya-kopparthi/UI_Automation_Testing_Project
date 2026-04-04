@@ -13,14 +13,11 @@ public class DriverFactory {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    // Initialize Driver (NOW RETURNS WebDriver )
-    public static WebDriver initDriver() {
+    // Initialize Driver
+    public static void initDriver() {
 
         String browser = ConfigReader.get("browser");
-        String url = ConfigReader.get("url");
-
         System.out.println("Launching browser: " + browser);
-
         if (browser.equalsIgnoreCase("chrome")) {
 
             WebDriverManager.chromedriver().setup();
@@ -30,9 +27,7 @@ public class DriverFactory {
             options.addArguments("--disable-blink-features=AutomationControlled");
 
             driver.set(new ChromeDriver(options));
-        }
-
-        else if (browser.equalsIgnoreCase("edge")) {
+        } else if (browser.equalsIgnoreCase("edge")) {
 
             System.setProperty("webdriver.edge.driver", "C:\\Drivers\\msedgedriver.exe");
 
@@ -41,20 +36,15 @@ public class DriverFactory {
             options.addArguments("--disable-blink-features=AutomationControlled");
 
             driver.set(new EdgeDriver(options));
-        }
-
-        else {
+        } else {
             throw new RuntimeException("Browser not supported: " + browser);
         }
 
         // Common setup
         getDriver().manage().deleteAllCookies();
         getDriver().manage().window().maximize();
-        getDriver().get(url);
 
-        return getDriver();   // ✅ IMPORTANT
     }
-
     // Get Driver
     public static WebDriver getDriver() {
         return driver.get();

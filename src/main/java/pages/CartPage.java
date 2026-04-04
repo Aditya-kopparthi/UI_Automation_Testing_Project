@@ -16,13 +16,17 @@ public class CartPage {
     // ================= LOCATORS =================
 
     By addedToCartMsg = By.xpath("//h1[contains(text(),'Added to Cart')]");
+
     By subtotalWhole = By.xpath("//span[@class='a-price-whole']");
     By subtotalContainer = By.id("sc-subtotal-amount-activecart");
+
     By cartCount = By.id("nav-cart-count");
     By cartButton = By.id("nav-cart");
     By cartItems = By.xpath("//div[contains(@class,'sc-list-item')]");
 
-    // ================= ACTIONS =================
+    // Product validation locators
+    By cartProductTitle = By.xpath("//span[contains(@class,'sc-product-title')]");
+    By cartProductPrice = By.xpath("//span[@class='a-size-medium a-color-base sc-price sc-white-space-nowrap']");
 
     public void goToCartPage() {
         try {
@@ -36,13 +40,12 @@ public class CartPage {
 
     public boolean isProductPresent() {
         try {
-            // Case 1: Added to cart page
             List<WebElement> addedMsg = driver.findElements(addedToCartMsg);
+
             if (!addedMsg.isEmpty()) {
                 return WaitUtil.waitForElement(driver, addedToCartMsg).isDisplayed();
             }
 
-            // Case 2: Cart page items
             return WaitUtil.waitForElement(driver, cartItems).isDisplayed();
 
         } catch (Exception e) {
@@ -50,14 +53,46 @@ public class CartPage {
         }
     }
 
+    // Get Cart Product Title
+    public String getCartProductTitle() {
+        return WaitUtil.waitForElement(driver, cartProductTitle)
+                .getText().trim();
+    }
+
+    // Get Cart Product Price
+    public String getCartProductPrice() {
+        String price = WaitUtil.waitForElement(driver, cartProductPrice)
+                .getText();
+
+        return price.replaceAll("[^0-9.]", "")   // keep digits + dot
+                .split("\\.")[0];            // remove decimal part
+    }
+
+    // FINAL VALIDATION
+    public boolean isCorrectProductAdded(String expectedName, String expectedPrice) {
+
+        String actualName = getCartProductTitle();
+        String actualPrice = getCartProductPrice();
+
+        System.out.println("Expected Name: " + expectedName);
+        System.out.println("Actual Name: " + actualName);
+
+        System.out.println("Expected Price: " + expectedPrice);
+        System.out.println("Actual Price: " + actualPrice);
+
+        boolean nameMatch = actualName.toLowerCase()
+                .contains(expectedName.toLowerCase());
+
+        boolean priceMatch = actualPrice.equals(expectedPrice);
+
+        return nameMatch && priceMatch;
+    }
+
     public String getSubtotal() {
         try {
-            // Try main subtotal container
             if (!driver.findElements(subtotalContainer).isEmpty()) {
                 return WaitUtil.waitForElement(driver, subtotalContainer).getText();
             }
-
-            // Fallback
             return WaitUtil.waitForElement(driver, subtotalWhole).getText();
 
         } catch (Exception e) {
