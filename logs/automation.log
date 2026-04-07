@@ -712,3 +712,211 @@ Session ID: a66e2c1805be811b9b0ad65981d58123
 2026-04-04 16:16:41 INFO  hooks.Hooks - Browser closed | Thread: 1
 2026-04-04 16:16:41 INFO  hooks.Hooks - ========== TEST ENDED ==========
 
+2026-04-05 12:16:35 INFO  hooks.Hooks - ========== TEST STARTED: Search product using JSON data ==========
+2026-04-05 12:16:41 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 12:16:41 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 12:16:41 ERROR hooks.Hooks - TEST FAILED: Search product using JSON data
+2026-04-05 12:16:44 INFO  hooks.Hooks - Screenshot captured
+2026-04-05 12:16:44 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 12:16:44 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 16:02:45 INFO  hooks.Hooks - ========== TEST STARTED: Search for iPhone using search bar ==========
+2026-04-05 16:02:57 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 16:02:57 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 16:02:57 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-05 16:03:04 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-05 16:03:08 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-05 16:03:08 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+2026-04-05 16:03:09 INFO  hooks.Hooks - TEST PASSED: Search for iPhone using search bar
+2026-04-05 16:03:10 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 16:03:10 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 16:08:08 INFO  hooks.Hooks - ========== TEST STARTED: Search for iPhone using search bar ==========
+2026-04-05 16:08:12 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 16:08:13 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 16:08:13 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-05 16:08:18 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-05 16:08:21 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-05 16:08:21 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+2026-04-05 16:08:22 INFO  hooks.Hooks - TEST PASSED: Search for iPhone using search bar
+2026-04-05 16:08:23 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 16:08:23 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 16:09:21 INFO  hooks.Hooks - ========== TEST STARTED: Add product to cart from Toys category ==========
+2026-04-05 16:09:26 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 16:09:26 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-05 16:09:26 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-05 16:09:34 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-05 16:09:45 INFO  stepdefinitions.AmazonCartSteps - Switching to product tab
+2026-04-05 16:09:45 INFO  stepdefinitions.AmazonCartSteps - Selected Product: Kipsta Polyvinyl Chloride (PVC) Mini Home Football Size 1 For Kids (Pink)
+2026-04-05 16:09:45 INFO  stepdefinitions.AmazonCartSteps - Selected Price: 289
+2026-04-05 16:09:49 INFO  stepdefinitions.AmazonCartSteps - Validating correct product and price
+2026-04-05 16:09:50 INFO  stepdefinitions.AmazonCartSteps - Subtotal:  ₹289.00
+2026-04-05 16:09:50 INFO  stepdefinitions.AmazonCartSteps - Cart count: 1
+2026-04-05 16:09:50 INFO  hooks.Hooks - TEST PASSED: Add product to cart from Toys category
+2026-04-05 16:09:50 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 16:09:50 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 16:09:51 INFO  hooks.Hooks - ========== TEST STARTED: Search for iPhone using search bar ==========
+2026-04-05 16:09:53 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 16:09:53 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 16:09:53 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-05 16:09:57 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-05 16:10:01 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-05 16:10:01 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+2026-04-05 16:10:01 INFO  hooks.Hooks - TEST PASSED: Search for iPhone using search bar
+2026-04-05 16:10:02 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 16:10:02 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 18:03:53 INFO  hooks.Hooks - ========== TEST STARTED: Search for product using search bar ==========
+2026-04-05 18:04:02 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 18:04:02 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 18:04:02 INFO  stepdefinitions.AmazonSearchSteps - Product fetched from JSON: iphone
+2026-04-05 18:04:06 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-05 18:04:10 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-05 18:04:10 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iphone
+2026-04-05 18:04:11 INFO  hooks.Hooks - TEST PASSED: Search for product using search bar
+2026-04-05 18:04:12 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 18:04:12 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 18:05:05 INFO  hooks.Hooks - ========== TEST STARTED: Search for product using search bar ==========
+2026-04-05 18:05:09 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 18:05:09 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 18:05:09 ERROR hooks.Hooks - TEST FAILED: Search for product using search bar
+2026-04-05 18:05:13 INFO  hooks.Hooks - Screenshot captured
+2026-04-05 18:05:14 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 18:05:14 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 18:12:46 INFO  hooks.Hooks - ========== TEST STARTED: Search for product using search bar ==========
+2026-04-05 18:12:50 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 18:12:50 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 18:12:50 INFO  stepdefinitions.AmazonSearchSteps - Product fetched from JSON: iphone
+2026-04-05 18:12:54 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-05 18:12:59 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-05 18:13:00 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iphone
+2026-04-05 18:13:00 INFO  hooks.Hooks - TEST PASSED: Search for product using search bar
+2026-04-05 18:13:01 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 18:13:01 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 18:22:02 INFO  hooks.Hooks - ========== TEST STARTED: Search multiple products using JSON ==========
+2026-04-05 18:22:07 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 18:22:07 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 18:22:08 INFO  stepdefinitions.AmazonSearchSteps - Searching for product: iphone
+2026-04-05 18:22:18 INFO  stepdefinitions.AmazonSearchSteps - Searching for product: laptop
+2026-04-05 18:22:24 INFO  stepdefinitions.AmazonSearchSteps - Searching for product: samsung
+2026-04-05 18:22:32 INFO  stepdefinitions.AmazonSearchSteps - Searching for product: headphones
+2026-04-05 18:22:39 INFO  hooks.Hooks - TEST PASSED: Search multiple products using JSON
+2026-04-05 18:22:40 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 18:22:40 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 18:32:15 INFO  hooks.Hooks - ========== TEST STARTED: Search for product using search bar ==========
+2026-04-05 18:32:20 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 1
+2026-04-05 18:32:20 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 18:32:20 INFO  stepdefinitions.AmazonSearchSteps - Product fetched from JSON: iphone
+2026-04-05 18:32:23 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-05 18:32:27 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-05 18:32:28 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iphone
+2026-04-05 18:32:28 INFO  hooks.Hooks - TEST PASSED: Search for product using search bar
+2026-04-05 18:32:29 INFO  hooks.Hooks - Browser closed | Thread: 1
+2026-04-05 18:32:29 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 21:32:13 INFO  hooks.Hooks - ========== TEST STARTED: Add product to cart from Toys category ==========
+2026-04-05 21:32:13 INFO  hooks.Hooks - ========== TEST STARTED: Search for product using search bar ==========
+2026-04-05 21:32:23 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 33
+2026-04-05 21:32:23 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 32
+2026-04-05 21:32:23 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-05 21:32:23 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-05 21:32:23 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-05 21:32:23 INFO  stepdefinitions.AmazonSearchSteps - Product fetched from JSON: iphone
+2026-04-05 21:32:26 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-05 21:32:31 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-05 21:32:32 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-05 21:32:33 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iphone
+2026-04-05 21:32:33 INFO  hooks.Hooks - TEST PASSED: Search for product using search bar
+2026-04-05 21:32:34 INFO  hooks.Hooks - Browser closed | Thread: 33
+2026-04-05 21:32:34 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-05 21:32:43 INFO  stepdefinitions.AmazonCartSteps - Switching to product tab
+2026-04-05 21:32:43 INFO  stepdefinitions.AmazonCartSteps - Selected Product: Nivia Home Play Football for Kids, Soft & Lightweight Toy Ball, Safe for Indoor Play, Size - 3 (Orange), Pack of 1
+2026-04-05 21:32:43 INFO  stepdefinitions.AmazonCartSteps - Selected Price: 249
+2026-04-05 21:32:47 INFO  stepdefinitions.AmazonCartSteps - Validating correct product and price
+2026-04-05 21:32:47 INFO  stepdefinitions.AmazonCartSteps - Subtotal:  ₹249.00
+2026-04-05 21:32:47 INFO  stepdefinitions.AmazonCartSteps - Cart count: 1
+2026-04-05 21:32:47 INFO  hooks.Hooks - TEST PASSED: Add product to cart from Toys category
+2026-04-05 21:32:48 INFO  hooks.Hooks - Browser closed | Thread: 32
+2026-04-05 21:32:48 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-06 10:42:25 INFO  hooks.Hooks - ========== TEST STARTED: Search for product using search bar ==========
+2026-04-06 10:42:25 INFO  hooks.Hooks - ========== TEST STARTED: Add product to cart from Toys category ==========
+2026-04-06 10:42:38 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 32
+2026-04-06 10:42:38 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-06 10:42:38 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-06 10:42:40 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 33
+2026-04-06 10:42:40 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-06 10:42:40 ERROR hooks.Hooks - TEST FAILED: Search for product using search bar
+2026-04-06 10:42:47 INFO  hooks.Hooks - Screenshot captured
+2026-04-06 10:42:48 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-06 10:42:52 INFO  hooks.Hooks - Browser closed | Thread: 33
+2026-04-06 10:42:52 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-06 10:43:05 INFO  stepdefinitions.AmazonCartSteps - Switching to product tab
+2026-04-06 10:43:06 INFO  stepdefinitions.AmazonCartSteps - Selected Product: Kidsmate Kids Football Goal Set with Ball & Pump | Sturdy Build Mini Football Net, Easy Setup Indoor & Outdoor Beginner Sports Practice | Perfect for Training & Fun Playtime - Green,Orange
+2026-04-06 10:43:06 INFO  stepdefinitions.AmazonCartSteps - Selected Price: 1399
+2026-04-06 10:43:11 INFO  stepdefinitions.AmazonCartSteps - Validating correct product and price
+2026-04-06 10:43:11 ERROR hooks.Hooks - TEST FAILED: Add product to cart from Toys category
+2026-04-06 10:43:12 INFO  hooks.Hooks - Screenshot captured
+2026-04-06 10:43:12 INFO  hooks.Hooks - Browser closed | Thread: 32
+2026-04-06 10:43:12 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-06 10:50:15 INFO  hooks.Hooks - ========== TEST STARTED: Add product to cart from Toys category ==========
+2026-04-06 10:50:15 INFO  hooks.Hooks - ========== TEST STARTED: Search for product using search bar ==========
+2026-04-06 10:50:22 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 33
+2026-04-06 10:50:22 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-06 10:50:23 INFO  stepdefinitions.AmazonSearchSteps - Product fetched from JSON: iphone
+2026-04-06 10:50:24 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 32
+2026-04-06 10:50:24 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-06 10:50:24 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-06 10:50:30 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-06 10:50:33 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-06 10:50:36 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-06 10:50:36 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iphone
+2026-04-06 10:50:37 INFO  hooks.Hooks - TEST PASSED: Search for product using search bar
+2026-04-06 10:50:38 INFO  hooks.Hooks - Browser closed | Thread: 33
+2026-04-06 10:50:38 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-06 10:50:47 INFO  stepdefinitions.AmazonCartSteps - Switching to product tab
+2026-04-06 10:50:48 INFO  stepdefinitions.AmazonCartSteps - Selected Product: Kidsmate Kids Football Goal Set with Ball & Pump | Sturdy Build Mini Football Net, Easy Setup Indoor & Outdoor Beginner Sports Practice | Perfect for Training & Fun Playtime - Green,Orange
+2026-04-06 10:50:48 INFO  stepdefinitions.AmazonCartSteps - Selected Price: 1399
+2026-04-06 10:50:53 INFO  stepdefinitions.AmazonCartSteps - Validating correct product and price
+2026-04-06 10:50:53 INFO  stepdefinitions.AmazonCartSteps - Subtotal:  ₹1,399.00
+2026-04-06 10:50:53 INFO  stepdefinitions.AmazonCartSteps - Cart count: 1
+2026-04-06 10:50:53 INFO  hooks.Hooks - TEST PASSED: Add product to cart from Toys category
+2026-04-06 10:50:54 INFO  hooks.Hooks - Browser closed | Thread: 32
+2026-04-06 10:50:54 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-07 22:11:42 INFO  hooks.Hooks - ========== TEST STARTED: Search product using JSON data ==========
+2026-04-07 22:11:42 INFO  hooks.Hooks - ========== TEST STARTED: Add product to cart from Toys category ==========
+2026-04-07 22:11:52 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 32
+2026-04-07 22:11:53 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-07 22:11:53 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-07 22:11:53 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 33
+2026-04-07 22:11:53 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-07 22:11:55 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-07 22:12:01 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-07 22:12:03 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-07 22:12:08 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-07 22:12:08 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+2026-04-07 22:12:09 INFO  hooks.Hooks - TEST PASSED: Search product using JSON data
+2026-04-07 22:12:10 INFO  hooks.Hooks - Browser closed | Thread: 33
+2026-04-07 22:12:10 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-07 22:12:16 INFO  stepdefinitions.AmazonCartSteps - Switching to product tab
+2026-04-07 22:12:16 INFO  stepdefinitions.AmazonCartSteps - Selected Product: Kidsmate Kids Football Goal Set with Ball & Pump | Sturdy Build Mini Football Net, Easy Setup Indoor & Outdoor Beginner Sports Practice | Perfect for Training & Fun Playtime - Green,Orange
+2026-04-07 22:12:16 INFO  stepdefinitions.AmazonCartSteps - Selected Price: 1399
+2026-04-07 22:12:21 INFO  stepdefinitions.AmazonCartSteps - Validating correct product and price
+2026-04-07 22:12:22 INFO  stepdefinitions.AmazonCartSteps - Subtotal:  ₹1,399.00
+2026-04-07 22:12:22 INFO  stepdefinitions.AmazonCartSteps - Cart count: 1
+2026-04-07 22:12:22 INFO  hooks.Hooks - TEST PASSED: Add product to cart from Toys category
+2026-04-07 22:12:23 INFO  hooks.Hooks - Browser closed | Thread: 32
+2026-04-07 22:12:23 INFO  hooks.Hooks - ========== TEST ENDED ==========
+

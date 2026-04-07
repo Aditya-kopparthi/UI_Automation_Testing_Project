@@ -16,7 +16,9 @@ public class AmazonHomePage {
     public void enterSearchText(String text) {
         WaitUtil.sendKeys(driver, searchBox, text);
     }
-
+    public void navigateToHomePage() {
+        driver.navigate().to("https://www.amazon.in/");
+    }
     // Click first suggestion or press Enter
     public void clickFirstSuggestion() {
 

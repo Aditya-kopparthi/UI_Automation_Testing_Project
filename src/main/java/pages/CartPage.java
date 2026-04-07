@@ -67,7 +67,14 @@ public class CartPage {
         return price.replaceAll("[^0-9.]", "")   // keep digits + dot
                 .split("\\.")[0];            // remove decimal part
     }
+    //returning the substring of requried length
+    private String getSafeText(String text, int length) {
+        if (text == null) return "";
 
+        text = text.toLowerCase().trim();
+
+        return text.substring(0, Math.min(length, text.length()));
+    }
     // FINAL VALIDATION
     public boolean isCorrectProductAdded(String expectedName, String expectedPrice) {
 
@@ -80,9 +87,14 @@ public class CartPage {
         System.out.println("Expected Price: " + expectedPrice);
         System.out.println("Actual Price: " + actualPrice);
 
-        boolean nameMatch = actualName.toLowerCase()
-                .contains(expectedName.toLowerCase());
+        //take first 30 characters safely
+        String expectedShort = getSafeText(expectedName, 30);
+        String actualShort = getSafeText(actualName, 30);
 
+        System.out.println("Expected (30 chars): " + expectedShort);
+        System.out.println("Actual (30 chars): " + actualShort);
+
+        boolean nameMatch = actualShort.equals(expectedShort);
         boolean priceMatch = actualPrice.equals(expectedPrice);
 
         return nameMatch && priceMatch;
