@@ -1,4 +1,4 @@
-# Amazon UI Automation Framework
+# Precision Ui BDD Automation Framework
 
 ## Overview
 This project is a Hybrid Test Automation Framework built using:
