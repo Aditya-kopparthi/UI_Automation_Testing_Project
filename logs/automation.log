@@ -920,3 +920,29 @@ Session ID: a66e2c1805be811b9b0ad65981d58123
 2026-04-07 22:12:23 INFO  hooks.Hooks - Browser closed | Thread: 32
 2026-04-07 22:12:23 INFO  hooks.Hooks - ========== TEST ENDED ==========
 
+2026-04-08 16:17:35 INFO  hooks.Hooks - ========== TEST STARTED: Search product using JSON data ==========
+2026-04-08 16:17:35 INFO  hooks.Hooks - ========== TEST STARTED: Add product to cart from Toys category ==========
+2026-04-08 16:17:54 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 32
+2026-04-08 16:17:54 INFO  hooks.Hooks - Browser launched and URL opened | Thread: 33
+2026-04-08 16:17:54 INFO  stepdefinitions.AmazonSearchSteps - Amazon homepage opened
+2026-04-08 16:17:54 INFO  stepdefinitions.AmazonCartSteps - Amazon homepage opened
+2026-04-08 16:17:54 INFO  stepdefinitions.AmazonCartSteps - Navigating to Toys category
+2026-04-08 16:17:55 INFO  stepdefinitions.AmazonSearchSteps - Entering product: iPhone
+2026-04-08 16:18:02 INFO  stepdefinitions.AmazonSearchSteps - Clicking first suggestion
+2026-04-08 16:18:07 INFO  stepdefinitions.AmazonSearchSteps - Validating results page
+2026-04-08 16:18:08 INFO  stepdefinitions.AmazonSearchSteps - Validating results for: iPhone
+2026-04-08 16:18:08 INFO  stepdefinitions.AmazonCartSteps - Selecting product
+2026-04-08 16:18:09 INFO  hooks.Hooks - TEST PASSED: Search product using JSON data
+2026-04-08 16:18:09 INFO  hooks.Hooks - Browser closed | Thread: 33
+2026-04-08 16:18:09 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
+2026-04-08 16:18:22 INFO  stepdefinitions.AmazonCartSteps - Switching to product tab
+2026-04-08 16:18:23 INFO  stepdefinitions.AmazonCartSteps - Selected Product: Kidsmate Kids Football Goal Set with Ball & Pump | Sturdy Build Mini Football Net, Easy Setup Indoor & Outdoor Beginner Sports Practice | Perfect for Training & Fun Playtime - Green,Orange
+2026-04-08 16:18:23 INFO  stepdefinitions.AmazonCartSteps - Selected Price: 1399
+2026-04-08 16:18:27 INFO  stepdefinitions.AmazonCartSteps - Validating correct product and price
+2026-04-08 16:18:28 INFO  stepdefinitions.AmazonCartSteps - Subtotal:  ₹1,399.00
+2026-04-08 16:18:28 INFO  stepdefinitions.AmazonCartSteps - Cart count: 1
+2026-04-08 16:18:28 INFO  hooks.Hooks - TEST PASSED: Add product to cart from Toys category
+2026-04-08 16:18:28 INFO  hooks.Hooks - Browser closed | Thread: 32
+2026-04-08 16:18:28 INFO  hooks.Hooks - ========== TEST ENDED ==========
+
