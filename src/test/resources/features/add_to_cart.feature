@@ -1,7 +1,5 @@
 Feature: Amazon Add to Cart Functionality
-
   Scenario: Add product to cart from Toys category
-
     Given user is on Amazon homepage
     When user navigates to Toys category from menu
     And user selects a product from category page
