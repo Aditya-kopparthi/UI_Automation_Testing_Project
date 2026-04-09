@@ -16,7 +16,7 @@ public class AmazonSearchSteps {
     AmazonHomePage homePage = new AmazonHomePage();
     AmazonSearchResultsPage resultsPage = new AmazonSearchResultsPage();
 
-    String product; // 🔥 shared variable
+    String product; //shared variable
 
     @Given("user opens Amazon homepage")
     public void openAmazon() {
@@ -27,6 +27,14 @@ public class AmazonSearchSteps {
     public void enterSearch() {
 
         product = JsonReader.getProduct("src/test/resources/testdata/searchData.json");
+
+        log.info("Entering product: " + product);
+        homePage.enterSearchText(product);
+    }
+    @When("user enters {string}")
+    public void enterSearch(String product) {
+
+        this.product = product;   // store for later validation
 
         log.info("Entering product: " + product);
         homePage.enterSearchText(product);
