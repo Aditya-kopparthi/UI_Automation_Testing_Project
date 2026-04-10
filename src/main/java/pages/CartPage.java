@@ -120,17 +120,5 @@ public class CartPage {
         }
     }
 
-    public boolean isSubtotalDisplayed() {
-        String subtotal = getSubtotal();
-        return subtotal.contains("₹") || subtotal.matches(".*\\d+.*");
-    }
 
-    public boolean isCartCountUpdated() {
-        try {
-            int count = Integer.parseInt(getCartCount());
-            return count > 0;
-        } catch (Exception e) {
-            return false;
-        }
-    }
 }
