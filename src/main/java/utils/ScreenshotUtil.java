@@ -10,13 +10,11 @@ public class ScreenshotUtil {
     public static void capture(WebDriver driver, String name) {
 
         try {
-            // Replace spaces (important)
+
             name = name.replaceAll(" ", "_");
 
-            // Correct path
             String path = "reports/screenshots/";
 
-            // Create folder if not exists
             File dir = new File(path);
             if (!dir.exists()) {
                 dir.mkdirs();

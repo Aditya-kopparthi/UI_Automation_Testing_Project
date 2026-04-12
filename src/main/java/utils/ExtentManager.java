@@ -6,7 +6,6 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ExtentManager {
 
     private static ExtentReports extent;
-
     public static ExtentReports getInstance() {
 
         if (extent == null) {
@@ -19,7 +18,6 @@ public class ExtentManager {
 
             extent = new ExtentReports();
             extent.attachReporter(reporter);
-
             extent.setSystemInfo("Tester", "Aditya");
         }
 
