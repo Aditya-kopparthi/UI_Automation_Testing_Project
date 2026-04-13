@@ -31,7 +31,7 @@ public class AmazonSearchSteps {
         log.info("Entering product: " + product);
         homePage.enterSearchText(product);
     }
-    @When("user enters {string}")
+    @When("user enters {string} in search bar")
     public void enterSearch(String product) {
 
         this.product = product;   // store for later validation

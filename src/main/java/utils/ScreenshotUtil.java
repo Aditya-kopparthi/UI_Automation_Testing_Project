@@ -14,7 +14,7 @@ public class ScreenshotUtil {
             name = name.replaceAll(" ", "_");
 
             // Correct path
-            String path = "reports/screenshots/";
+            String path = "screenshots/";
 
             // Create folder if not exists
             File dir = new File(path);

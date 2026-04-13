@@ -21,6 +21,7 @@ public class AmazonCartSteps {
 
     @Given("user is on Amazon homepage")
     public void openAmazon() {
+
         log.info("Amazon homepage opened");
     }
 
@@ -43,7 +44,7 @@ public class AmazonCartSteps {
 
         product.switchToTab();
 
-        // ✅ Capture AFTER switching
+        // Capture AFTER switching
         selectedProduct = product.getProductTitle();
         selectedPrice = product.getProductPrice();
 
@@ -63,7 +64,8 @@ public class AmazonCartSteps {
     }
 
     @And("user navigates to cart page")
-    public void openCart() {
+    public void openCart()
+    {
         product.goToCart();
     }
 

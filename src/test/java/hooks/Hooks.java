@@ -19,7 +19,7 @@ public class Hooks {
 
     private static final Logger log = LogManager.getLogger(Hooks.class);
 
-    // ✅ Extent Report objects
+    // Extent Report objects
     private static ExtentReports extent = ExtentManager.getInstance();
     public static ExtentTest test;
 
@@ -28,7 +28,7 @@ public class Hooks {
 
         log.info("========== TEST STARTED: " + scenario.getName() + " ==========");
 
-        // ✅ Create test in Extent Report
+        // Create test in Extent Report
         test = extent.createTest(scenario.getName());
 
         // Initialize driver
@@ -62,10 +62,10 @@ public class Hooks {
                 // Save locally
                 ScreenshotUtil.capture(driver, scenario.getName());
 
-                // ✅ Convert screenshot to Base64 for Extent
+                // Convert screenshot to Base64 for Extent
                 String base64 = Base64.getEncoder().encodeToString(screenshot);
 
-                // ✅ Attach screenshot in Extent report
+                //  Attach screenshot in Extent report
                 test.fail("Test Failed: " + scenario.getName(),
                         MediaEntityBuilder.createScreenCaptureFromBase64String(base64).build());
 
@@ -74,7 +74,7 @@ public class Hooks {
             } else {
                 log.info("TEST PASSED: " + scenario.getName());
 
-                // ✅ Mark PASS in Extent
+                // Mark PASS in Extent
                 test.pass("Test Passed: " + scenario.getName());
             }
 
@@ -88,7 +88,7 @@ public class Hooks {
             log.info("Browser closed | Thread: " + Thread.currentThread().getId());
             log.info("========== TEST ENDED ==========\n");
 
-            // ✅ Generate report
+            // Generate report
             extent.flush();
         }
     }
