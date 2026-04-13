@@ -1,208 +1,245 @@
-# 🚀 Precision UI BDD Automation Framework
+# Precision UI BDD Automation Framework
 
-## 🔹 Overview
-This project is a **Hybrid Test Automation Framework** built using:
+## Overview
+This project, titled **“Precision UI BDD Automation Project”**, is a Hybrid Test Automation Framework designed using Behavior-Driven Development (BDD) to automate web application testing.
 
+### Tech Stack
 - Java
 - Selenium WebDriver
 - Cucumber (BDD)
 - TestNG
 - Maven
-
-The framework automates key user scenarios on Amazon and is designed to be **scalable, maintainable, reusable, and robust**.
-
----
-
-## 🎯 Objective
-- Implement **Page Object Model (POM)**
-- Use **BDD with Cucumber**
-- Support **Data-Driven Testing (JSON + Parameterization)**
-- Enable **Cross-Browser Execution**
-- Generate **Advanced Reports (Extent Reports)**
-- Support **Parallel Execution**
-- Maintain **Clean and Modular Architecture**
+- Log4j2
+- Extent Reports
 
 ---
 
-## 🏗️ Framework Architecture
+## Objectives
+- Implement Page Object Model (POM)
+- Use BDD with Cucumber (Gherkin syntax)
+- Support Data-Driven Testing (JSON + Parameterization)
+- Enable Cross-Browser Execution
+- Generate Reports and Logs
+- Support Parallel Execution
 
+---
 
+## Framework Architecture
+
+```
 Test Runner (TestNG)
-↓
-Feature Files (BDD Scenarios)
-↓
+        ↓
+Feature Files (BDD)
+        ↓
 Cucumber Engine
-↓
+        ↓
 Hooks (@Before / @After)
-↓
-Step Definitions (Test Logic)
-↓
-Page Object Layer (POM)
-↓
-Driver Factory (Thread-safe driver handling)
-↓
-Browser (Chrome / Edge)
+        ↓
+Step Definitions
+        ↓
+Page Object Model (POM)
+        ↓
+DriverFactory
+        ↓
+Browser
+        ↓
+Hooks (Teardown)
 
+----------------------------------------
 Utilities Layer
-(ConfigReader | JsonReader | WaitUtil | ScreenshotUtil | ExtentManager)
+(Config | JSON | Wait | Screenshot)
+----------------------------------------
+
 Reporting Layer
-(Extent Reports integrated via Hooks)
+(Extent Reports + Log4j2)
+```
 
 ---
 
-## 📁 Project Structure
-
-
-src
-├── main/java
-│ ├── factory → DriverFactory
-│ ├── pages → Page Objects
-│ ├── utils → Utilities
-│
-├── test/java
-│ ├── stepdefinitions
-│ ├── runners
-│ ├── hooks
-│
-├── test/resources
-│ ├── features
-│ │ ├── search_json.feature
-│ │ ├── search_parameterized.feature
-│ │ └── add_to_cart.feature
-│ ├── testdata
-│ │ └── searchData.json
-│
-logs/
-screenshots/
-test-output/
-└── ExtentReports/
-
+## Key Features
+- Hybrid Framework (POM + BDD + Data-Driven)
+- BDD using Cucumber
+- Data-Driven Testing using JSON
+- Parameterized Testing using Scenario Outline (msearch.feature)
+- Parallel Execution using TestNG
+- Cross-Browser Support (Chrome, Edge)
+- Thread-safe DriverFactory
+- Hooks-based lifecycle management
+- Screenshot capture on failure
+- Extent Reports + Log4j2
 
 ---
 
-## 🧪 Test Scenarios
+## Test Scenarios
 
-### 🔍 Search Product (JSON Data Driven)
-- Open Amazon homepage
-- Read product from JSON file
-- Search product
+### Search Product (JSON Data)
+- Read product from JSON
+- Enter product in search bar
+- Click suggestion
 - Validate results
 
----
-
-### 🔍 Search Product (Parameterized Scenario)
-
-
-Scenario Outline: Search product
-Given user is on homepage
-When user searches for "<product>"
-Then results should be displayed
-
-Examples:
-| product |
-| iPhone |
-| Laptop |
-
-
----
-
-### 🛒 Add to Cart
-- Navigate to category
+### Add to Cart
+- Navigate to Toys category
 - Select product
 - Add to cart
-- Validate cart
+- Validate subtotal and cart count
+
+### Parameterized Search (Scenario Outline)
+
+```
+Scenario Outline: Search product using multiple data
+  Given user opens Amazon homepage
+  When user enters "<product>" in search bar
+  And user clicks on first suggestion
+  Then results page should be displayed
+  And results should be relevant to entered product
+
+Examples:
+  | product  |
+  | iPhone   |
+  | Samsung  |
+  | Laptop   |
+```
 
 ---
 
-## 🔄 Data-Driven Testing
+## Data-Driven Testing
 
-### 🔹 JSON-Based
+### JSON Example
 
-
-src/test/resources/testdata/searchData.json
-
-
-```json
+```
 {
   "product": "iPhone"
 }
-String product = JsonReader.getData("product");
-🔹 Parameterization
-Uses Scenario Outline
-Data passed via feature file
-✅ Advantage
+```
 
-Supports both:
+---
 
-External data (JSON)
-Inline BDD parameterization
-🛠️ Utilities
-Utility	Description
-ConfigReader	Reads config
-JsonReader	Reads JSON data
-WaitUtil	Explicit waits
-ScreenshotUtil	Failure screenshots
-ExtentManager	Reporting
-DriverFactory	Driver handling
-🌐 Cross Browser Support
+## Project Structure
+
+```
+|── logs
+|   └── automation.log
+
+|── src
+│   ├── main/java
+│   │   ├── factory
+│   │   ├── pages
+│   │   └── utils
+│   │
+│   ├── test/java
+│   │   ├── hooks
+│   │   ├── runners
+│   │   └── stepdefinitions
+│   │
+│   ├── test/resources
+│       ├── features
+│       │   ├── search.feature
+│       │   ├── add_to_cart.feature
+│       │   └── msearch.feature
+│       └── testdata
+│           └── searchData.json
+
+|── test-output
+|── screenshots
+|── pom.xml
+|── testng.xml
+|── README.md
+```
+
+---
+
+## Utilities
+
+| Utility | Description |
+|--------|------------|
+| ConfigReader | Reads configuration |
+| JsonReader | Reads JSON data |
+| WaitUtil | Synchronization |
+| ScreenshotUtil | Captures screenshots |
+| ExtentManager | Reporting |
+
+---
+
+## Cross Browser Support
+
+```
 browser=chrome
+```
 
-Supported:
+---
 
-Chrome
-Edge
-⚡ Parallel Execution
+## Parallel Execution
+
+```
 @DataProvider(parallel = true)
 public Object[][] scenarios() {
     return super.scenarios();
 }
-📊 Reporting
-Extent Reports
-Integrated via Hooks
-Managed using ExtentManager
-Includes screenshots
-Log4j2
-Logs stored in /logs
-▶️ Execution
-mvn clean test
-📂 Reports
-Extent → test-output/ExtentReports/
-Screenshots → /screenshots
-Logs → /logs
-🧠 OOP Concepts
-Encapsulation
-Abstraction
-Inheritance
-Polymorphism
-⭐ Key Features
-Hybrid (POM + BDD + Data-Driven)
-JSON + Parameterization
-Parallel Execution
-Extent Reports
-Screenshot on Failure
-Scalable Design
-🚀 Future Enhancements
-Retry mechanism
-Jenkins CI/CD
-Docker
-Selenium Grid
-👨‍💻 Authors
-Aditya Kopparthi
-Framework design
-DriverFactory
-Utilities
-Reporting
-Parallel execution
-Kalyan Sai Ram Akula
-Feature files
-Step definitions
-Page objects
-💡 Interview Tip
-
-"I implemented data-driven testing using both Cucumber parameterization and external JSON files."
-
+```
 
 ---
 
+## Reporting and Logging
+- Extent Reports
+- Log4j2
+- Screenshot on failure
 
-Just tell me 👍
+---
+
+## Execution
+
+```
+mvn clean test
+```
+
+---
+
+## Results
+- Successful execution of all scenarios
+- JSON and parameterized testing validated
+- Cross-browser execution achieved
+- Parallel execution reduced runtime
+- Screenshots captured on failure
+- Detailed reports generated
+
+---
+
+## Conclusion
+This framework follows a hybrid approach (POM + BDD + Data-Driven) ensuring scalability, maintainability, and efficient automation aligned with industry standards.
+
+---
+
+## Team Contribution
+
+### Aditya Kopparthi
+- Designed and implemented the Hybrid Automation Framework (POM + BDD + Data-Driven)
+- Integrated Cucumber with TestNG for scalable execution
+- Implemented parallel execution using TestNG DataProvider
+- Developed Page Object Model for modular automation
+- Implemented data-driven testing using JSON and Scenario Outline
+- Integrated Extent Reports with screenshot capture on failure
+- Built utility layer (ConfigReader, ScreenshotUtil, WaitUtil, ExtentManager)
+- Implemented logging using Log4j
+- Configured Maven and Surefire Plugin for execution
+- Implemented cross-browser testing using config.properties
+- Designed overall framework architecture
+
+### Akula Kalyan Sai Ram
+- Developed BDD feature files for search and add-to-cart scenarios
+- Implemented step definitions mapping Gherkin steps to code
+- Worked on assertions and validation logic
+- Assisted in debugging and fixing test failures
+- Maintained test data and ensured smooth execution
+- Contributed to Git repository management
+- Assisted in implementing reusable page methods
+- Helped validate execution reports and results
+
+---
+
+## Future Enhancements
+- CI/CD Integration (Jenkins / GitHub Actions)
+- Selenium Grid / Cloud Execution
+- Docker Integration
+- Advanced Data-Driven Testing
+- API Testing Integration
