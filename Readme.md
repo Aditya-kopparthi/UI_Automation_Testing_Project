@@ -55,6 +55,9 @@ Reporting Layer
 ```
 
 ---
+## Framework Architecture (Diagram)
+
+![Architecture Diagram](docs/architecture_diagram.jfif)
 
 ## Key Features
 - Hybrid Framework (POM + BDD + Data-Driven)
