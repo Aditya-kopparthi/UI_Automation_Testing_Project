@@ -57,7 +57,7 @@ Reporting Layer
 ---
 ## Framework Architecture (Diagram)
 
-![Architecture Diagram](docs/architecture_diagram.jfif)
+![Architecture Diagram](docs/architecture_diagram.png)
 
 ## Key Features
 - Hybrid Framework (POM + BDD + Data-Driven)
@@ -205,8 +205,14 @@ mvn clean test
 - Parallel execution reduced runtime
 - Screenshots captured on failure
 - Detailed reports generated
-
 ---
+## Test Reports
+
+<p align="center">
+  <img src="docs/report_image.png" width="30%" />
+  <img src="docs/report_image2.png" width="30%" />
+  <img src="docs/report_image3.png" width="30%" />
+</p>
 
 ## Conclusion
 This framework follows a hybrid approach (POM + BDD + Data-Driven) ensuring scalability, maintainability, and efficient automation aligned with industry standards.
